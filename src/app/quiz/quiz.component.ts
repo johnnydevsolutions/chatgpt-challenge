@@ -5,98 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
-/* export class QuizComponent implements OnInit {
-  questions: any[] = [
-    {
-      question: 'Qual é a capital do Brasil?',
-      options: ['Rio de Janeiro', 'Brasília', 'São Paulo', 'Belo Horizonte'],
-      answer: 'Brasília'
-    },
-    {
-      question: 'Qual é a maior montanha do mundo?',
-      options: ['Everest', 'K2', 'Makalu', 'Lhotse'],
-      answer: 'Everest'
-    },
-    {
-      question: 'Qual é o país mais populoso do mundo?',
-      options: ['Índia', 'Estados Unidos', 'China', 'Brasil'],
-      answer: 'China'
-    }
-  ];
-  currentQuestionIndex = 0;
-  showResult = false;
-  correctAnswers = 0;
-  showPopup = false;
 
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  selectOption(option: string) {
-    if (option === this.questions[this.currentQuestionIndex].answer) {
-      this.correctAnswers++;
-    }
-    if (this.currentQuestionIndex === this.questions.length - 1) {
-      this.showResult = true;
-    } else {
-      this.currentQuestionIndex++;
-    }
-  }
-}
- */
-
-/* export class QuizComponent implements OnInit {
-  questions: any[] = [
-    {
-      question: 'Qual é a capital do Brasil?',
-      options: ['Rio de Janeiro', 'Brasília', 'São Paulo', 'Belo Horizonte'],
-      answer: 'Brasília'
-    },
-    {
-      question: 'Qual é a maior montanha do mundo?',
-      options: ['Everest', 'K2', 'Makalu', 'Lhotse'],
-      answer: 'Everest'
-    },
-    {
-      question: 'Qual é o país mais populoso do mundo?',
-      options: ['Índia', 'Estados Unidos', 'China', 'Brasil'],
-      answer: 'China'
-    }
-  ];
-  currentQuestionIndex = 0;
-  showResult = false;
-  correctAnswers = 0;
-  showPopup = false;
-  selectedOption: string | null = null;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  selectOption(opt: string) {
-    const question = this.questions[this.currentQuestionIndex];
-
-    if (opt === question.answer) {
-      this.correctAnswers++;
-      question.result = 'correct';
-    } else {
-      question.result = 'wrong';
-    }
-
-    if (this.currentQuestionIndex === this.questions.length - 1) {
-      this.showResult = true;
-      if (this.correctAnswers === this.questions.length) {
-        this.showPopup = true;
-      }
-    } else {
-      this.currentQuestionIndex++;
-    }
-  }
-
-} */
 
 export class QuizComponent implements OnInit {
   questions: any[] = [
@@ -158,26 +67,6 @@ showErrorPopup = false;
     }
   }
 
-
-  /* selectOption(opt: string) {
-    const question = this.questions[this.currentQuestionIndex];
-
-    if (opt === question.answer) {
-      this.correctAnswers++;
-      question.result = 'correct';
-    } else {
-      question.result = 'wrong';
-    }
-
-    if (this.currentQuestionIndex === this.questions.length - 1) {
-      this.showResult = true;
-      if (this.correctAnswers === this.questions.length) {
-        this.showPopup = true;
-      }
-    } else {
-      this.currentQuestionIndex++;
-    }
-  } */
   resetGame() {
     this.currentQuestionIndex = 0;
     this.showResult = false;
