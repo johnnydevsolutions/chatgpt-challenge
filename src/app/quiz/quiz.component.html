@@ -1,0 +1,39 @@
+<h1>Jogo de perguntas</h1>
+
+
+
+<div *ngIf="!showResult">
+  <h2>{{questions[currentQuestionIndex].question}}</h2>
+  <ul>
+    <li *ngFor="let option of questions[currentQuestionIndex].options"
+        (click)="selectOption(option)"
+        [ngClass]="{'correct': option === questions[currentQuestionIndex].answer && option === selectedOption,
+                    'incorrect': option !== questions[currentQuestionIndex].answer && option === selectedOption}">
+      {{option}}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="showResult">
+  <h2>Resultado</h2>
+  <p>Você acertou {{correctAnswers}} de {{questions.length}} perguntas.</p>
+  <button (click)="showPopup = true" *ngIf="correctAnswers === questions.length">Parabéns!</button>
+  <button (click)="resetGame()">Jogar novamente</button>
+
+  <div class="popup" *ngIf="showPopup">
+    <div class="popup-inner">
+      <h2>Parabéns!</h2>
+      <p>Você acertou todas as perguntas!</p>
+      <button (click)="showPopup = false">Fechar</button>
+    </div>
+  </div>
+
+  <div class="popup" *ngIf="!showPopup && correctAnswers < questions.length">
+    <div class="popup-inner error">
+      <h2 class="">Falhou!</h2>
+      <p>O seu percentual ficou abaixo da média.</p>
+
+      <button (click)="resetGame()">Jogar novamente</button>
+    </div>
+  </div>
+</div>
